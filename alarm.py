@@ -10,6 +10,7 @@ def buttonA_wasPressed():
   label.setText("DIS")
   res = requests.post(url=baseUrl + 'disarm')
   time.sleep(2)
+  label.setText(fetch_status())
   pass
 btnA.wasPressed(buttonA_wasPressed)
 
@@ -18,6 +19,7 @@ def buttonB_wasPressed():
   label.setText("ARM")
   res = requests.post(url=baseUrl + 'arm')
   time.sleep(2)
+  label.setText(fetch_status())
   pass
 btnB.wasPressed(buttonB_wasPressed)
 
@@ -41,7 +43,7 @@ def ttimer1():
 
 setScreenColor(0x000000)
 wifiCfg.doConnect('SSID', 'PASSWORD')
-baseUrl = 'YOURAPI'
+baseUrl = 'APIURL'
 label = M5TextBox(60, 30, "INIT", lcd.FONT_DejaVu56, 0xFFFFFF, rotate=90)
 time.sleep(2)
 label.setText(fetch_status())
